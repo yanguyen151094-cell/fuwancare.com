@@ -42,3 +42,24 @@ function revealElements() {
     }
   }
 }
+// === CUỘN NGANG CHO PHẦN TESTIMONIALS ===
+const testimonialGrid = document.querySelector('.testimonials-grid');
+
+// Cho phép cuộn tự động
+if (testimonialGrid) {
+  let scrollAmount = 0;
+  const scrollStep = 1; // tốc độ cuộn
+  const delay = 15; // khoảng cách giữa các frame (ms)
+
+  function autoScrollTestimonials() {
+    testimonialGrid.scrollLeft += scrollStep;
+    scrollAmount += scrollStep;
+
+    // Nếu cuộn đến hết thì quay lại đầu
+    if (testimonialGrid.scrollLeft + testimonialGrid.clientWidth >= testimonialGrid.scrollWidth) {
+      testimonialGrid.scrollLeft = 0;
+    }
+  }
+
+  setInterval(autoScrollTestimonials, delay);
+}
