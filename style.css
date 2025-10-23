@@ -1214,166 +1214,18 @@ body {
   max-width: 1000px;
   z-index: 2;
 }
-/* === FIX RESPONSIVE FINAL - MOBILE FRIENDLY === */
+/* === FIX RESPONSIVE CHUẨN MOBILE === */
 @media (max-width: 768px) {
 
-  /* ====== BANNER ====== */
-  .hero, .hero-slider {
-    height: 320px !important;
-    min-height: unset;
-  }
-
-  .hero-slider img {
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .hero-content {
-    width: 90%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: 1.6rem;
-    line-height: 1.4;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    margin-top: 10px;
-  }
-
-  .hero-content .btn {
-    padding: 8px 18px;
-    font-size: 0.9rem;
-  }
-
-  /* ====== DỊCH VỤ ====== */
-  .service-card {
-    width: 90%;
-    max-width: 320px;
-  }
-
-  .services-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* ====== GÓI HỖ TRỢ ====== */
-  .support-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .support-card img {
-    height: 140px;
-  }
-
-  /* ====== TESTIMONIAL ====== */
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    gap: 20px;
-  }
-
-  .testimonial-card {
-    width: 90%;
-    max-width: 350px;
-    margin-bottom: 25px;
-  }
-
-  .testimonial-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  /* ====== NAVBAR ====== */
-  nav a {
-    font-size: 0.95rem;
-    margin-left: 15px;
-  }
-
-  .navbar .container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  /* ====== SIDEBAR CONTACT ====== */
-  .contact-sidebar {
-    left: 10px;
-    bottom: 80px;
-    gap: 10px;
-  }
-
-  .contact-btn {
-    min-width: 120px;
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .contact-btn i {
-    font-size: 18px;
-    padding: 6px;
-  }
-}
-@media (max-width: 768px) {
-  footer {
-    padding-bottom: 60px;
-  }
-}
-/* === FIX BANNER MOBILE CENTER === */
-@media (max-width: 768px) {
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 280px !important; /* giữ đúng tỉ lệ banner */
-    overflow: hidden;
-  }
-
-  .hero-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-
-  .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
-  }
-
-  .hero-content h1 {
-    font-size: 1.8rem;
-    line-height: 1.3;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    margin: 8px 0 12px 0;
-  }
-
-  .hero-content .btn {
-    padding: 10px 22px;
-    font-size: 0.95rem;
-  }
-}
-/* === TỐI ƯU HEADER CHO ĐIỆN THOẠI === */
-@media (max-width: 768px) {
-  header {
-    padding: 8px 12px;
+  /* === HEADER === */
+  header, .navbar {
+    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 8px 14px;
+    position: relative;
+    z-index: 100;
   }
 
   .logo {
@@ -1383,33 +1235,67 @@ body {
   }
 
   .logo img {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 24px;
+    height: 24px;
   }
 
-  .logo span,
-  .logo h1 {
-    font-size: 1rem;
-    line-height: 1;
-    margin: 0;
+  .logo span {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* === MENU === */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
   }
 
   nav {
-    display: flex;
-    gap: 12px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  nav.active {
+    display: flex;
   }
 
   nav a {
-    font-size: 0.9rem;
-    font-weight: 500;
+    display: block;
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
-  /* Fix banner phần hero cho điện thoại */
-  .hero {
-    height: 280px !important;
-    overflow: hidden;
+  nav a:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  /* === BANNER === */
+  .hero, .hero-slider {
+    height: 45vh; /* co giãn linh hoạt */
+    min-height: 260px;
+    max-height: 400px;
+  }
+
+  .hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-content {
@@ -1418,20 +1304,71 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     width: 90%;
+    color: #fff;
   }
 
   .hero-content h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.3;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   }
 
   .hero-content p {
     font-size: 0.9rem;
+    margin: 8px 0 12px 0;
   }
 
   .hero-content .btn {
-    padding: 8px 20px;
     font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+
+  /* === DỊCH VỤ & GÓI HỖ TRỢ === */
+  .services-grid,
+  .support-grid {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .service-card,
+  .support-card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  /* === TESTIMONIAL === */
+  .testimonials-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-x: hidden;
+  }
+
+  .testimonial-card {
+    width: 90%;
+    max-width: 340px;
+  }
+
+  /* === FOOTER & SIDEBAR === */
+  footer {
+    padding-bottom: 60px;
+  }
+
+  .contact-sidebar {
+    left: 10px;
+    bottom: 70px;
+    gap: 10px;
+  }
+
+  .contact-btn {
+    min-width: 110px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .contact-btn i {
+    font-size: 16px;
   }
 }
