@@ -1430,5 +1430,22 @@ body {
   background-color: #ff6668;
   transform: scale(1.05);
 }
+/* Logo chung trong header hoặc hero */
+.logo img {
+  width: 100%;
+  max-width: 150px;   /* Giới hạn kích thước tối đa */
+  height: auto;       /* Tự động tính chiều cao theo tỷ lệ */
+  border-radius: 8px; /* Bo nhẹ góc logo (tuỳ chọn) */
+  object-fit: contain; /* Giữ nguyên tỷ lệ logo */
+}
+
+/* Trên điện thoại (màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 120px;
+    margin: 0 auto;
+    display: block;
+  }
+}
 
 
