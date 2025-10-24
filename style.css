@@ -1284,44 +1284,34 @@ body {
     background-color: rgba(255,255,255,0.1);
   }
 
-  /* === BANNER === */
+  /* === BANNER CHUẨN MOBILE (tự động tỉ lệ, không bị cắt ảnh) === */
+.hero, .hero-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* tỷ lệ phổ biến cho banner ngang */
+  overflow: hidden;
+}
+
+.hero-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* thay contain → cover để ảnh tràn đều hơn */
+  object-position: center center;
+}
+
+/* Điều chỉnh riêng cho điện thoại */
+@media (max-width: 768px) {
   .hero, .hero-slider {
-    height: 45vh; /* co giãn linh hoạt */
-    min-height: 260px;
-    max-height: 400px;
+    aspect-ratio: 16 / 10; /* cao hơn cho điện thoại dọc */
+    max-height: 480px; /* giới hạn tránh banner chiếm hết màn hình */
   }
 
   .hero-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain; /* chỉ khi cần giữ toàn bộ ảnh */
+    background-color: #000;
   }
+}
 
-  .hero-content {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
-    color: #fff;
-  }
-
-  .hero-content h1 {
-    font-size: 1.3rem;
-    line-height: 1.3;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-    margin: 8px 0 12px 0;
-  }
-
-  .hero-content .btn {
-    font-size: 0.9rem;
-    padding: 8px 18px;
-  }
 
   /* === DỊCH VỤ & GÓI HỖ TRỢ === */
   .services-grid,
