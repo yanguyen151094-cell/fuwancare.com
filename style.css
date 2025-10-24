@@ -1215,7 +1215,7 @@ body {
 @media (max-width: 768px) {
   .hero, .hero-slider {
     aspect-ratio: 16 / 10; /* cao hơn cho điện thoại dọc */
-    max-height: 120px;
+    max-height: 200px;
   }
 
   .hero-slider img {
