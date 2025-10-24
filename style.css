@@ -1284,168 +1284,58 @@ body {
     background-color: rgba(255,255,255,0.1);
   }
 
-  /* === BANNER CHUẨN MOBILE (tự động tỉ lệ, không bị cắt ảnh) === */
+ /* === BANNER RESPONSIVE CHUẨN TOÀN ẢNH === */
 .hero, .hero-slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* tỷ lệ phổ biến cho banner ngang */
+  height: auto;
+  aspect-ratio: 1920 / 480; /* tỷ lệ đúng ảnh banner */
   overflow: hidden;
-}
-
-.hero-slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* thay contain → cover để ảnh tràn đều hơn */
-  object-position: center center;
-}
-
-/* Điều chỉnh riêng cho điện thoại */
-@media (max-width: 768px) {
-  .hero, .hero-slider {
-    aspect-ratio: 16 / 10; /* cao hơn cho điện thoại dọc */
-    max-height: 480px; /* giới hạn tránh banner chiếm hết màn hình */
-  }
-
-  .hero-slider img {
-    object-fit: contain; /* chỉ khi cần giữ toàn bộ ảnh */
-    background-color: #000;
-  }
-}
-
-
-  /* === DỊCH VỤ & GÓI HỖ TRỢ === */
-  .services-grid,
-  .support-grid {
-    flex-direction: column;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .service-card,
-  .support-card {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  /* === TESTIMONIAL === */
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    overflow-x: hidden;
-  }
-
-  .testimonial-card {
-    width: 90%;
-    max-width: 340px;
-  }
-
-  /* === FOOTER & SIDEBAR === */
-  footer {
-    padding-bottom: 60px;
-  }
-
-  .contact-sidebar {
-    left: 10px;
-    bottom: 70px;
-    gap: 10px;
-  }
-
-  .contact-btn {
-    min-width: 110px;
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .contact-btn i {
-    font-size: 16px;
-  }
-}
-
-/* ================================================
-   STYLE_FIXED.CSS - Phiên bản tối ưu di động cho Jin (More Can)
-   ================================================ */
-
-/* --- LOGO --- */
-.logo img {
-  width: 40px;
-  height: 40px;
-  transition: all 0.3s ease;
-}
-
-.logo span {
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-/* --- HEADER --- */
-header, .navbar {
   background-color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #f15b2a;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* --- BANNER --- */
-.hero, .hero-slider {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 480;
-  overflow: hidden;
 }
 
 .hero-slider img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* giữ toàn ảnh, không cắt */
   object-position: center;
   display: block;
+  background-color: #000;
+  transition: opacity 1.5s ease-in-out;
 }
 
+.hero-slider img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero-slider img:not(.active) {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* === PHẦN CHỮ TRÊN BANNER === */
 .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
   text-align: center;
+  color: #fff;
   width: 90%;
+  z-index: 5;
 }
 
 .hero-content h1 {
   font-size: 2.5rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  line-height: 1.3;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero-content p {
-  margin: 10px 0;
   font-size: 1.1rem;
+  margin-top: 10px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content .btn {
@@ -1455,6 +1345,8 @@ nav a:hover {
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
+  display: inline-block;
+  margin-top: 12px;
   transition: background 0.3s ease;
 }
 
@@ -1462,110 +1354,16 @@ nav a:hover {
   background: #d44f24;
 }
 
-/* --- TESTIMONIALS --- */
-.testimonials-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.testimonial-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 320px;
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-}
-
-/* --- SIDEBAR CONTACT --- */
-.contact-sidebar {
-  position: fixed;
-  bottom: 90px;
-  left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 100;
-}
-
-.contact-btn {
-  background-color: #f15b2a;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-}
-
-.contact-btn:hover {
-  background-color: #d44f24;
-  transform: translateY(-2px);
-}
-
-/* =========================================================
-   RESPONSIVE CHO MOBILE
-   ========================================================= */
+/* === RESPONSIVE CHO MOBILE === */
 @media (max-width: 768px) {
-
-  /* HEADER */
-  header, .navbar {
-    padding: 8px 14px;
-  }
-
-  .logo img {
-    width: 22px;
-    height: 22px;
-  }
-
-  .logo span {
-    font-size: 0.85rem;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  nav a {
-    display: block;
-    line-height: 1.6;
-    padding: 10px 0;
-    color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    width: 100%;
-  }
-
-  /* BANNER */
   .hero, .hero-slider {
-    aspect-ratio: 1920 / 480;
-    max-height: 380px;
+    aspect-ratio: 16 / 10; /* cao hơn cho điện thoại dọc */
+    max-height: 420px;
+  }
+
+  .hero-slider img {
+    object-fit: contain; /* hiển thị toàn bộ ảnh */
+    background-color: #000;
   }
 
   .hero-content h1 {
@@ -1579,33 +1377,5 @@ nav a:hover {
   .hero-content .btn {
     font-size: 0.9rem;
     padding: 8px 18px;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testimonial-card {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  /* SIDEBAR */
-  .contact-sidebar {
-    left: 10px;
-    bottom: 60px;
-    gap: 10px;
-  }
-
-  .contact-btn {
-    min-width: 110px;
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .contact-btn i {
-    font-size: 16px;
   }
 }
