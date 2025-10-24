@@ -1214,9 +1214,35 @@ body {
 /* === RESPONSIVE CHO MOBILE === */
 @media (max-width: 768px) {
   .hero, .hero-slider {
-    aspect-ratio: 16 / 10; /* cao hơn cho điện thoại dọc */
-    max-height: 200px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 480;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* tăng tỷ lệ hiển thị banner cho điện thoại */
+@media (max-width: 768px) {
+  .hero, .hero-slider {
+    aspect-ratio: 16 / 9; /* cao hơn để banner đầy màn hình hơn */
+    max-height: 480px;
   }
+
+  .hero-slider img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
 
   .hero-slider img {
     object-fit: contain; /* hiển thị toàn bộ ảnh */
@@ -1235,4 +1261,12 @@ body {
     font-size: 0.9rem;
     padding: 8px 18px;
   }
+}
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
